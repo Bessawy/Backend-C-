@@ -21,6 +21,7 @@ public class FakeCrudService<TModel, TDto> : ICrudService<TModel, TDto>
         };
         _items[item.Id] = item;
         // TODO: Updating item from dto
+        request.UpdateModel(item);
         return item;
     }
 
@@ -54,7 +55,9 @@ public class FakeCrudService<TModel, TDto> : ICrudService<TModel, TDto>
         {
             return null;
         }
-        // TODO: Updating item from dto
+        // TODO: Updating item from dt
+        request.UpdateModel(item);
         return item;
     }
+    
 }

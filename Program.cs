@@ -19,13 +19,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddScoped<IOrderProcessingService, OrderProcessingService>();
 builder.Services.AddScoped<IEmailSenderService, FakeEmailSenderService>();
-builder.Services.AddSingleton<IChatGPTService, FakeChatGPTService>();
 
+builder.Services.AddSingleton<IChatGPTService, FakeChatGPTService>();
 builder.Services.AddSingleton<ICounterService, RequestCounterService>();
 
 // Change this to different lifetime and see how it works
 builder.Services.AddTransient<IDemoService, DemoService>();
-builder.Services.AddSingleton<ICourseService, FakeCourseSerivce>();
+builder.Services.AddSingleton<ICrudService<Student, StudentDTO>, FakeCrudService<Student, StudentDTO>>();
 
 // FIXME: Missing service registration
 builder.Services.Configure<CourseSetting>(builder.Configuration.GetSection("MyCourseSettings"));
